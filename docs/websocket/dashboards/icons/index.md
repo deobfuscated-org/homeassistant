@@ -6,7 +6,7 @@ If you have fetched a dashboard (using something like `{"id":4,"type":"lovelace/
 
 "Inherited" icon information needs to be fetched separately.
 
-First, ask fir `config/entity_registry/list_for_display`.
+First, ask for `config/entity_registry/list_for_display`.
 This yields something like (many entities omitted here):
 
 ```json
