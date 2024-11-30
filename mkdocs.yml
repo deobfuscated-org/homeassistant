@@ -1,0 +1,4 @@
+site_name: Deobfuscated/Home Assistant
+site_url: https://homeassistant.deobfuscated.org/
+theme:
+  name: material
