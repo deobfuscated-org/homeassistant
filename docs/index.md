@@ -1,17 +1,5 @@
-# Welcome to MkDocs
+# Home
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+This is not a replacement for the [Home Assistant Documentation](https://www.home-assistant.io/docs/) or the [Home Assistant Developer Docs](https://developers.home-assistant.io/), which are great.
 
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+This website aims to be an addition to that - explain things in a different way, allow half complete notes from developers that have tried things with the API where full docs do not exist, etc.
