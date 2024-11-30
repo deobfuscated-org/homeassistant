@@ -1,6 +1,6 @@
-# WebSocket
+# Intro
 
-FIXME: header item says Websocket, not WebSocket, sidebar says Websocket and then also WebSocket.
+FIXME: header item says Websocket, not WebSocket
 
 If you are a developer interacting with Home Assistant in real time, it is likely you are using the Home Assistant [WebSocket API](https://developers.home-assistant.io/docs/api/websocket/).
 The HA docs about it are extensive, but by no means complete.
