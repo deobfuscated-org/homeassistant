@@ -42,8 +42,8 @@ This yields something like (many entities omitted here):
       },
       {
         "di": "e06293557a341d6f8e5d088af9075f78",
-        "ei": "sensor.reistijd_naar_stal",
-        "en": "reistijd naar stal",
+        "ei": "sensor.reistijd_naar_x",
+        "en": "reistijd naar x",
         "lb": [],
         "pl": "waze_travel_time",
         "tk": "waze_travel_time"
@@ -71,25 +71,33 @@ From [`homeassistant/helpers/entity_registry.py` in homeassistant-core](https://
 
 Further down into the file, we learn `ei` is `entity_id` and `pl` is `platform`.
 
-For reference, a "Next dusk" state might look like this:
+For reference, a state for the `waze_travel_time` might look like this (edited for privacy):
 
 ```json
-{
   "attributes": {
-    "device_class": "timestamp",
-    "friendly_name": "Sun Next dusk"
+    "attribution": "Powered by Waze",
+    "destination": "xx",
+    "device_class": "duration",
+    "distance": 49.697,
+    "duration": 31.1,
+    "friendly_name": "reistijd naar x",
+    "origin": "xxx",
+    "route": "xxxx",
+    "state_class": "measurement",
+    "unit_of_measurement": "min"
   },
   "context": {
-    "id": "01JDYXF31F8Y0PFJWNB430D6R8",
+    "id": "01JE4H00W6X0QVSK6T2JQV1Z04",
     "parent_id": null,
     "user_id": null
   },
-  "entity_id": "sensor.sun_next_dusk",
-  "last_changed": "2024-11-30T16:11:38.415586+00:00",
-  "last_reported": "2024-11-30T17:35:30.051910+00:00",
-  "last_updated": "2024-11-30T16:11:38.415586+00:00",
-  "state": "2024-12-01T16:11:05+00:00"
+  "entity_id": "sensor.reistijd_naar_x",
+  "last_changed": "2024-12-02T18:09:09.781158+00:00",
+  "last_reported": "2024-12-02T20:29:08.358965+00:00",
+  "last_updated": "2024-12-02T20:29:08.358965+00:00",
+  "state": "31"
 }
+
 ```
 
 Note the lack of icon.
@@ -117,12 +125,36 @@ Here's a state with an explicit icon:
 }
 ```
 
-But for the "Next dusk" entity, we shall need to do more work to find an icon.
-From the entity registry, we have learned that for that entity, the platform is `sun` and the translation key is `next_dusk`.
+But for the `wave_travel_time` (`sensor.reistijd_naar_x`) entity, we shall need to do more work to find an icon.
+From the entity registry, we have learned that for that entity, the platform is `waze_travel_time` and the translation key is (also, but this is not always so) `waze_travel_time`.
 It appears that the translation key is useful as a key for other things too.
 
-Next step: we send `{"category":"entity","id":4,"integration":"sun","type":"frontend/get_icons"}`.
-Here's the response (in full):
+Next step: we send `{"category":"entity","id":4,"integration":"waze_travel_time","type":"frontend/get_icons"}`.
+
+```json
+{
+  "id": 4,
+  "result": {
+    "resources": {
+      "waze_travel_time": {
+        "sensor": {
+          "waze_travel_time": {
+            "default": "mdi:car"
+          }
+        }
+      }
+    }
+  },
+  "success": true,
+  "type": "result"
+}
+```
+
+So, the default icon for platform `waze_travel_time`, sensor `waze_travel_time` is `mdi:car`.
+
+Note that you can leave out `integration` to get icons for all relevant integrations.
+
+For a platform with multiple sensors/sensor types, here's the response to `{"category":"entity","id":4,"integration":"sun","type":"frontend/get_icons"}`
 
 ```json
 {
@@ -167,4 +199,4 @@ Here's the response (in full):
 }
 ```
 
-So, the default icon for `next_dusk` is `mdi:sun-clock`.
+And so, the default icon for `next_dusk` is `mdi:sun-clock`.
