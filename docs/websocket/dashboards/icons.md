@@ -71,7 +71,7 @@ From [`homeassistant/helpers/entity_registry.py` in homeassistant-core](https://
 
 Further down into the file, we learn `ei` is `entity_id` and `pl` is `platform`.
 
-For reference, a state for the `waze_travel_time` might look like this (edited for privacy):
+For reference, a state for the `waze_travel_time` platform might look like this (edited for privacy):
 
 ```json
   "attributes": {
