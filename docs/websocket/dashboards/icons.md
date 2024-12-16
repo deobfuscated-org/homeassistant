@@ -2,6 +2,8 @@
 
 ## Entity icons
 
+FIXME: there's a four step process to figuring out an icon and this page is incomplete. Will update soon.
+
 If you have fetched a dashboard (using something like `{"id":4,"type":"lovelace/config","url_path":"dashboard-stuff"}`), you might soon discover that most entities do not contain an icon. This appears to be because entity icons are usually inherited - except when set explicitly by the user.
 
 "Inherited" icon information needs to be fetched separately.
