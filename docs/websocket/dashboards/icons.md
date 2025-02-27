@@ -2,11 +2,20 @@
 
 ## Entity icons
 
-FIXME: there's a four step process to figuring out an icon and this page is incomplete. Will update soon.
-
 If you have fetched a dashboard (using something like `{"id":4,"type":"lovelace/config","url_path":"dashboard-stuff"}`), you might soon discover that most entities do not contain an icon. This appears to be because entity icons are usually inherited - except when set explicitly by the user.
 
 "Inherited" icon information needs to be fetched separately.
+
+The priorities for assigning icons appear to be as follows:
+
+1. an `icon` attribute on the entity (tends to be `mdi:something`)
+2. an `entity_picture` attribute on the entity (tends to *not* be `mdi:something`)
+3. a default from the [Entity registry](#entity-registry) on platform+translation key
+4. a default from the [Icon registry](#icon-registry) on domain+device_class
+
+On top of that, there can be state-dependent icons. (FIXME: put example in)
+
+# Entity registry
 
 First, ask for `config/entity_registry/list_for_display`.
 This yields something like (many entities omitted here):
@@ -131,7 +140,9 @@ But for the `wave_travel_time` (`sensor.reistijd_naar_x`) entity, we shall need 
 From the entity registry, we have learned that for that entity, the platform is `waze_travel_time` and the translation key is (also, but this is not always so) `waze_travel_time`.
 It appears that the translation key is useful as a key for other things too.
 
-Next step: we send `{"category":"entity","id":4,"integration":"waze_travel_time","type":"frontend/get_icons"}`.
+# Icon registry
+
+We send `{"category":"entity","id":4,"integration":"waze_travel_time","type":"frontend/get_icons"}`.
 
 ```json
 {
