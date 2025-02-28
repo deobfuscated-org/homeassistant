@@ -213,3 +213,8 @@ For a platform with multiple sensors/sensor types, here's the response to `{"cat
 ```
 
 And so, the default icon for `next_dusk` is `mdi:sun-clock`.
+
+## TODO
+
+There is also the [Brands](https://github.com/home-assistant/brands) repository.
+It should likely be covered on this page or perhaps another one.
